@@ -1,0 +1,30 @@
+<%if !flash[:notice].blank?%>
+    <div class="notice">
+      <%=flash[:notice]%>
+    </div>
+<%end%>
+<div class="books index">
+  <h2>Books</h2>
+  <button>
+    <%= link_to("Add Book Entry", new_book_path, :class => 'action new') %>
+  </button>
+
+  <table class="listing" summary="Book list">
+    <tr class="header">
+      <th>Title</th>
+      <th>Author</th>
+      <th>Actions</th>
+    </tr>
+    <% @books.each do |book| %>
+    <tr>
+      <td><%= book.title %></td>
+      <td><%= book.author %></td>
+      <td class="Actions">
+        <%= link_to("Update", edit_book_path(book), :class => 'action edit') %>
+        <%= link_to("Details", book_path(book), :class => 'action show') %>
+        <%= link_to("Delete", delete_book_path(book), :class => 'action delete') %>
+      </td>
+    </tr>
+    <% end %>
+  </table>
+</div>
