@@ -1,0 +1,34 @@
+<button>
+    <%= link_to("Home Page", root_path, :class => 'action index') %>
+</button>
+
+<div class="books new">
+  <h2>Delete Book</h2>
+    <p>Are you sure you want to delete this book?</P>
+    <table class="list" summary="Book">
+    <tr class="header">
+      <th>ID</th>
+      <th>Title</th>
+      <th>Author</th>
+      <th>Genre</th>
+      <th>Price</th>
+      <th>Published</th>
+    </tr>
+    <tr>
+      <td><%= @book.id %></td>
+      <td><%= @book.title %></td>
+      <td><%= @book.author %></td>
+      <td><%= @book.genre %></td>
+      <td><%= @book.price %></td>
+      <td><%= @book.published %></td>
+      
+    </tr>
+  </table>
+  <%= form_for(@book, :method => 'delete') do |f| %>
+
+    <div class="form-buttons">
+      <%= f.submit("Delete Book") %>
+    </div>
+
+  <% end %>
+</div>
